@@ -1,0 +1,40 @@
+<ion-header mode='md'>
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+    <ion-icon name="close-outline" class="cross" slot="end" (click)="dismiss()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Full Name :</ion-label>
+          <ion-input disabled>{{userData.name}}</ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Email :</ion-label>
+          <ion-input disabled> {{userData.email}}</ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Mobile :</ion-label>
+          <ion-input disabled>{{userData.mobile}}</ion-input>
+        </ion-item>
+        <br>
+        <ion-button class="ion-text-center" expand='block' color='warning' size='small' [active]='true'>
+          <b>Refer Code : </b>
+          {{userData.mobile}}
+        </ion-button>
+        <br><br>
+        <ion-button size='small' expand='block' color='dark'>Change Password</ion-button>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

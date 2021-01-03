@@ -1,0 +1,56 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+
+    </ion-buttons>
+    <ion-title class="ion-text-start">Result</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="bs">
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <b class="gt">#01 Duo Match</b><br>
+              <ion-text color='danger'>Time : 22/2/2020</ion-text><br>
+              <ion-text>Winning Prize : 100</ion-text><br>
+              <ion-text>Entry Fee : 100</ion-text><br>
+              <ion-text>Per Kill : 100</ion-text><br>
+              <ion-text>Map : Bermuda</ion-text><br><br>
+              <ion-progress-bar color="danger" value="0.1" buffer="0.1"></ion-progress-bar>
+              <div class="ion-text-center">
+                <small>10/48</small>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-chip color="medium" (click)='sendToYoutube()' target='_blank' outline='true'>
+
+                <ion-label color="danger"><ion-icon name="logo-youtube" class="ion-margin-end"></ion-icon>Watch</ion-label>
+              </ion-chip>
+              
+              <div class="ion-float-right">
+                <ion-chip color='medium' (click)="joinModal()" outline='true'>
+
+                  <ion-label color='success'>Result</ion-label>
+                </ion-chip>
+               
+              </div>
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

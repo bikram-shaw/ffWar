@@ -1,0 +1,18 @@
+ion-tab-button[aria-selected="true"] {
+  background-color: maroon;
+  border-radius: 5px;
+}
+ion-tab-button {
+  --padding-bottom: 5px;
+  --padding-end: 2px;
+  --padding-start: 2px;
+}
+ion-item ion-icon {
+  zoom: 2.5;
+  color: maroon;
+  font-size: 10px;
+  margin-right: 10px;
+}
+ion-icon{
+  color:black;
+}

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+   
+    <ion-title>Withdraw</ion-title>
+    <ion-icon name="close-outline" slot='end' class="cross" (click)="dismiss()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid>
+  <ion-row *ngFor='let data of withdrawMethod' >
+    <ion-col class="bb">
+     
+      <ion-item lines='none'>
+      <img src='../assets/icon/{{data.mode}}.png' class="icon">
+      <img src='../assets/icon/rupee.png' class="rupee">
+      <b >{{data.amount}}
+      </b>
+      <ion-chip color="{{data.color}}" (click)="withdrawBal(data.amount,data.mode)" >
+        <ion-label >Select</ion-label>
+      </ion-chip>
+    </ion-item>
+    
+    </ion-col>
+    
+   
+  </ion-row>
+
+</ion-grid>
+</ion-content>

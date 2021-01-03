@@ -1,0 +1,49 @@
+<ion-header>
+  
+  <ion-toolbar>
+    <ion-icon name="close-outline" class="cross" size='small' slot="end" (click)="dismiss()"></ion-icon>
+    <ion-title>Join Game</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid >
+  <ion-row >
+    <ion-col class="ion-text-center" >
+      <ion-chip>
+        <ion-icon name="wallet" color="warning"></ion-icon>
+        <h3>
+          <img src='../assets/icon/rupee.png' class="rupee"><b>{{walletBal.wal_bal}}
+          </b>
+        </h3>
+      </ion-chip>
+      
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="ion-text-center ">
+     
+      <ion-chip>
+        <ion-icon name="trophy" color="secondary"></ion-icon>
+        <h3>
+          <img src='../assets/icon/rupee.png' class="rupee"><b>{{walletBal.win_bal}}
+          </b>
+        </h3>
+      </ion-chip>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="ion-margin-top" size='12'>
+      <ion-item mode='md'>
+        <ion-label position="stacked">Enter your gaming name :</ion-label>
+        <ion-input placeholder="example : ᵀᵉᵃᵐ★ʄօʊʀ20★࿐" [(ngModel)]="player_name"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size='12' class="ion-margin-top">
+      <ion-button expand='block' mode='md' (click)="joinGame()">
+        Join
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

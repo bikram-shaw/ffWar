@@ -1,0 +1,63 @@
+<ion-content class="body">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="slider">
+        <ion-slides [options]="slideOpts">
+          <ion-slide *ngFor="let imgs of slideImages">
+            <ion-img src="../assets/images/{{imgs}}"></ion-img>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <ion-row class="login">
+     
+      <ion-col mode="md" >
+        <h1 class="ion-text-center">Log In</h1>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmitLoginForm()">
+         
+          <ion-item>
+            <ion-icon name="call" slot="start"></ion-icon>
+
+            <ion-input placeholder="Mobile No." type="tel" maxLength="10" formControlName="mobile"></ion-input>
+          </ion-item>
+          <div class="ion-text-center" *ngIf="!loginForm.get('mobile').valid && loginForm.get('mobile').touched">
+            <ion-text color="danger">
+              <small>Please enter a valid mobile number</small>
+            </ion-text>
+          </div>
+          <hr />
+          <ion-item>
+            <ion-icon name="lock-closed" slot="start"></ion-icon>
+            <ion-input placeholder="Password" formControlName="password" [type]="password" maxLength="8"></ion-input>
+            <ion-icon [name]="pwdhs" (click)="showPassword()" slot="end" class="pwdhs"></ion-icon>
+          </ion-item>
+          <div class="ion-text-center" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
+            <ion-text color="danger">
+              <small>Password should be 4 to 8 digit long</small>
+            </ion-text>
+          </div>
+
+          <ion-item class="ion-text-end" lines="none" routerLink="/forget-password">
+            <ion-text color="primary">Forget Password</ion-text>
+          </ion-item>
+          <div *ngIf="loadingBtn">
+            <ion-button type="submit" class="submit" expand="block" [disabled]="!loginForm.valid">Log In</ion-button>
+          </div>
+          <div *ngIf="!loadingBtn">
+            <ion-button color="dark" class="submit" expand="block">
+              <ion-spinner color="" name="dots"></ion-spinner>
+            </ion-button>
+          </div>
+        </form>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-margin-top ion-text-center">
+        <ion-text color="warning"><b>Or</b></ion-text>
+        <ion-item routerLink="/signup" lines="none" class="ion-text-center">
+          <ion-label color="tertiary">Create new account</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

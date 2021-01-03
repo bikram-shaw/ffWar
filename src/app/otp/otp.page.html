@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon name="arrow-back" (click)="dismiss()"></ion-icon>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <h5 class="title">Otp sent successfully</h5>
+  <p>Enter 4 digit pin send to,<br> bik****awbnk@gmail.com</p>
+
+
+
+  <ion-row >
+    <ion-col class="ion-text-center">
+     <ion-input class="x" #otp1 required="true" maxLength="1" (keyup)="gotoNextField(otp2,$event)">
+     </ion-input>
+     <ion-input class="x" #otp2 required="true" maxLength="1" (keyup)="gotoNextField(otp3,$event)">
+     </ion-input>
+     <ion-input class="x" #otp3 required="true" maxLength="1" (keyup)="gotoNextField(otp4,$event)">
+     </ion-input>
+    <ion-input class="x" #otp4 required="true" maxLength="1">
+    </ion-input>
+ </ion-col>
+  </ion-row>
+  <p class="text1">Resend otp in  <ion-label color="primary">00:60</ion-label></p><br>
+<p class="text2" ><ion-label color="warning" >Resend Otp</ion-label></p>
+</ion-content>

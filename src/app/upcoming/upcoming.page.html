@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-start">Upcoming Matches</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-grid>
+    <ion-row *ngFor='let data of upcomingMatchData; index as i' class="ion-margin-bottom">
+      <ion-col class="bs" *ngIf='!noUpcomingMatch' >
+        <ion-img src='../assets/images/ffwar/giveaway.jpeg'></ion-img>
+        <ion-grid>
+          <ion-row >
+            <ion-col >
+              
+              <b class="gt">#{{data.id}} Duo Match</b><br>
+              <ion-text color='danger'>Date : {{data.date| date:"dd/mm/yyyy"}}</ion-text><br>
+              <ion-text color='danger'>Time : {{data.time }}</ion-text><br>
+              <ion-text>Winning Prize : {{data.win_prize}}</ion-text><br>
+              <ion-text>Entry Fee : {{data.entry_fee}}</ion-text><br>
+              <ion-text>Per Kill : {{data.per_kill}}</ion-text><br>
+              <ion-text>Map : {{data.map}}</ion-text><br><br>
+              <ion-progress-bar color="dark" value='{{1/data.spots*data.join_spot}}'></ion-progress-bar>
+             
+              <div class="ion-text-center">
+                <small>{{data.join_spot}}/{{data.spots}}</small>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              
+              <ion-button size='small' color='dark' class="ion-text-start" (click)="playerListModal(data.id)">Player List
+              </ion-button>
+              <div class="ion-float-right" *ngIf='data.spots-data.join_spot'>
+               
+                <ion-button size='small' color='tertiary' (click)="joinModal(data.id,data.entry_fee)">Join</ion-button>
+              </div>
+              <div class="ion-float-right" *ngIf='data.spots-data.join_spot>0?false:true'>
+                <ion-button size='small' color='danger' >Full</ion-button>
+              </div>
+
+            </ion-col>
+          </ion-row>
+         
+        </ion-grid>
+      </ion-col>
+    </ion-row><br><br><br>
+    <ion-row *ngIf='noUpcomingMatch'>
+      <ion-col class="noMatchError">
+        <ion-img src='https://gamingmazzafiles.s3.ap-south-1.amazonaws.com/gamesImages/ffsolo.jpg'></ion-img>
+        <h1 >Comming Soon</h1>
+        <ion-text color='danger'><small>Stay Tuned</small></ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

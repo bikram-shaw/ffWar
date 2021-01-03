@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Signup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-img src='../assets/images/signup.jpeg'></ion-img>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+
+      <ion-col mode="md" class="signup">
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmitSignUpForm()">
+          <ion-item>
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-label position="floating">Full Name *</ion-label>
+            <ion-input type="text" formControlName="name" maxLength="20"></ion-input>
+          </ion-item>
+          <div class="ion-text-center" *ngIf="!signUpForm.get('name').valid && signUpForm.get('name').touched">
+            <ion-text color="danger"><small>{{error_messages.name}}</small></ion-text>
+          </div>
+
+          <ion-item>
+            <ion-icon name="call" slot="start"></ion-icon>
+
+            <ion-label position="floating">Mobile Number *</ion-label>
+            <ion-input type="tel" formControlName="mobile" maxLength="10"></ion-input>
+          </ion-item>
+          <div class="ion-text-center" *ngIf="!signUpForm.get('mobile').valid && signUpForm.get('mobile').touched">
+            <ion-text color="danger"><small>{{error_messages.mobile}}</small></ion-text>
+          </div>
+          <ion-item>
+            <ion-icon name="mail" slot="start"></ion-icon>
+            <ion-label position="floating">Email Id *</ion-label>
+            <ion-input type="email" formControlName="email" maxLength="30"></ion-input>
+          </ion-item>
+          <div class="ion-text-center" *ngIf="!signUpForm.get('email').valid && signUpForm.get('email').touched">
+            <ion-text color="danger"><small>{{error_messages.email}}</small></ion-text>
+          </div>
+          <ion-item>
+            <ion-icon name="lock-open" slot="start"></ion-icon>
+            <ion-label position="floating">Password *</ion-label>
+            <ion-input type="text" formControlName="password" maxLength="8"></ion-input>
+          </ion-item>
+          <div class="ion-text-center" *ngIf="!signUpForm.get('password').valid && signUpForm.get('password').touched">
+            <ion-text color="danger"><small>{{error_messages.password}}</small></ion-text>
+          </div>
+          <ion-item>
+            <ion-icon name="receipt" slot="start"></ion-icon>
+            <ion-label position="stacked">Refer Code (optional)</ion-label>
+            <ion-input type="text" placeholder="Enter 6 digit refer code" minLength="6" formControlName="refer_code"
+              maxLength="6"></ion-input>
+          </ion-item>
+          <div *ngIf="loadingBtn">
+            <ion-button expand="block" mode="md" class="ion-margin-top" type="submit" [disabled]="!signUpForm.valid">
+              Submit</ion-button>
+          </div>
+          <div *ngIf="!loadingBtn">
+            <ion-button color="dark" class="submit" expand="block">
+              <ion-spinner color="" name="dots"></ion-spinner>
+            </ion-button>
+          </div>
+         
+        </form>
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item routerLink="/" lines="none">
+          <ion-label class="ion-text-center" color="primary">Back to login page1 </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

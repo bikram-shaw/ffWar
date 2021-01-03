@@ -1,0 +1,8 @@
+{
+  "name": "ffwar",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

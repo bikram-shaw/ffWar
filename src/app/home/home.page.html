@@ -1,0 +1,60 @@
+<ion-menu side="start" mode="md" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item button (click)="presentModal(1)">
+        <ion-icon name="person-circle-outline"></ion-icon>Profile
+      </ion-item>
+      <ion-item button (click)="presentModal(1)">
+        <ion-icon name="bar-chart-outline"></ion-icon>My Strategy
+      </ion-item>
+
+      <ion-item button (click)="presentModal(4)">
+        <ion-icon name="link"></ion-icon>Refer & Earn
+      </ion-item>
+
+      <ion-item button (click)="sendToWhatsapp()">
+        <ion-icon name="logo-whatsapp"></ion-icon>Contact Us
+      </ion-item>
+      <ion-item button (click)="presentModal(6)">
+        <ion-icon name="information-circle"></ion-icon>About
+      </ion-item>
+      <ion-item (click)="logout()" button>
+        <ion-icon name="log-out"></ion-icon>Logout
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar color="light" class="ion-text-center">
+      <ion-title color="medium"><small>version 0.0.1</small></ion-title>
+    </ion-toolbar>
+  </ion-footer>
+</ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="upcoming">
+      <ion-icon name="list-circle"></ion-icon>
+      <ion-label>Upcoming</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="ongoing">
+      <ion-icon name="timer"></ion-icon>
+      <ion-label>Ongoing</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="result">
+      <ion-icon name="newspaper"></ion-icon>
+      <ion-label>Result</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="wallet">
+      <ion-icon name="wallet-outline"></ion-icon>
+      <ion-label>Wallet</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

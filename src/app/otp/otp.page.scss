@@ -1,0 +1,33 @@
+.x{
+    display:inline-block;
+    width:44px;
+    
+    background-color: white;
+    margin:5px;
+    border-bottom: 2px solid gray;
+    
+    //--padding-start:7px;
+    }
+    .title{
+        text-align: center;
+        font-weight: bold;
+        color: green;
+    }
+    p{
+       
+            font-size: 12px;
+          margin-top: 8px;
+            text-align: center;
+           color: gray; 
+      
+    }
+    .text2{
+      font-size: 12px;
+          margin-top: 8px;
+            text-align: center;
+    }
+    ion-icon {
+        font-size: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }

@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-start">Wallet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col class="col-1 ion-text-center">
+        <ion-icon color='warning' name="wallet" size='large'></ion-icon><br>
+
+        <ion-label style='font-size: 3vh;'><b>Wallet Balance</b></ion-label><br>
+
+        <h3>
+          <img src='../assets/icon/rupee.png' style='font-size: 3vh;' class="rupee"><b>{{walletBal.wal_bal}}
+          </b>
+        </h3>
+
+
+
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-margin-top">
+      <ion-col class="col-2 ion-text-center">
+
+        <ion-icon color='danger' size='large' name="trophy"></ion-icon><br>
+        <ion-label><b>Winning Balance </b></ion-label><br>
+        <h3>
+          <img src='../assets/icon/rupee.png' class="rupee"><b>{{walletBal.win_bal}}
+          </b>
+        </h3>
+
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-margin-top">
+      <ion-col class="col-3 ion-text-center">
+
+
+        <ion-chip color='tertiary' outline='true'>
+
+          <ion-label (click)="addMoney()">Add Money</ion-label>
+        </ion-chip>
+        <ion-chip color='danger' outline='true' (click)="openWithdrawModel(walletBal.win_bal)">
+
+          <ion-label>Withdraw</ion-label>
+        </ion-chip><br>
+
+      </ion-col>
+    </ion-row>
+    <ion-row class=" ion-margin-top">
+      <ion-col>
+        <ion-card class="ion-no-margin ion-no-padding">
+          <ion-card-header class="ion-no-margin ion-no-padding ion-text-center">
+            <ion-card-subtitle color='primary'>Transactions</ion-card-subtitle>
+
+          </ion-card-header>
+
+          <ion-card-content class="ion-no-margin ion-no-padding">
+            <ion-grid>
+              <ion-row class="row-1">
+
+                <ion-col class="ion-text-center" size='6'><small><b>Description</b></small></ion-col>
+                <ion-col class="ion-text-center" size='6'>
+                  
+                  <small><b>Amount</b></small>
+                
+                
+                </ion-col>
+                
+              </ion-row>
+               <div *ngFor="let txn of txn_data">
+
+             
+              <ion-row class="row-2" [style.background-color]="txn.txn_status==='credit'?'#9FE598':'#E59898'">
+
+                <ion-col class="ion-text-center" size='6'>
+
+                  <small>{{txn.txn_description}}</small><br><small>{{txn.txn_date | date}}</small>
+                </ion-col>
+                <ion-col class="ion-text-center" size='6'><small>{{txn.txn_amount}}</small><br>
+                  <ion-text >
+                    <small >{{txn.txn_status}}</small></ion-text>
+                </ion-col>
+              </ion-row>
+            </div>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+
+        <div class="ion-text-center ">
+          <ion-button color='dark' size='small'>More</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>
