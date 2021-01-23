@@ -2,7 +2,9 @@
   <ion-toolbar>
    
     <ion-title>Withdraw</ion-title>
-    <ion-icon name="close-outline" slot='end' class="cross" (click)="dismiss()"></ion-icon>
+    <ion-button slot='end' class="close-btn" (click)="dismiss()">
+      <ion-icon size='large' name="close-circle-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -16,7 +18,7 @@
       <img src='../assets/icon/rupee.png' class="rupee">
       <b >{{data.amount}}
       </b>
-      <ion-chip color="{{data.color}}" (click)="withdrawBal(data.amount,data.mode)" >
+      <ion-chip color="{{data.color}}" (click)="wthConfirmAlert(data.amount,data.mode)" >
         <ion-label >Select</ion-label>
       </ion-chip>
     </ion-item>

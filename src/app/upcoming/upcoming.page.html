@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="tab-tool">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -35,15 +35,21 @@
           </ion-row>
           <ion-row>
             <ion-col>
+              <ion-chip color='dark' (click)="playerListModal(data.id)">
+                <ion-label>   Player List   </ion-label>
+              </ion-chip>
               
-              <ion-button size='small' color='dark' class="ion-text-start" (click)="playerListModal(data.id)">Player List
-              </ion-button>
               <div class="ion-float-right" *ngIf='data.spots-data.join_spot'>
+               <ion-chip color='tertiary' (click)="joinModal(data.id,data.entry_fee)">
+                 <ion-label>Join Match</ion-label>
+               </ion-chip>
                
-                <ion-button size='small' color='tertiary' (click)="joinModal(data.id,data.entry_fee)">Join</ion-button>
               </div>
               <div class="ion-float-right" *ngIf='data.spots-data.join_spot>0?false:true'>
-                <ion-button size='small' color='danger' >Full</ion-button>
+                <ion-chip color='primary' >
+                  <ion-label>Match Full</ion-label>
+                </ion-chip>
+                
               </div>
 
             </ion-col>

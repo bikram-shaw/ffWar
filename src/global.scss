@@ -28,7 +28,21 @@
 ion-menu-button {
   color: rgb(255, 255, 255);
 }
+ion-toolbar{
+  ion-title{
+ 
+    padding: 0px;
+    margin-left: 10px;
+  
+ 
+}
 
+}
+.close-btn{
+    
+  --box-shadow: none;
+  --background: maroon;
+}
 .scroller.scroll-content {
   overflow: hidden;
 }
@@ -66,16 +80,7 @@ ion-toolbar {
   
  
 }
-.cross{
-  zoom: 1.4;
-  color: white;
-  margin-right: 10px;
-  border: 1px solid white;
-  border-radius: 3px;
-  
-   cursor: pointer;
-  
-}
+
 .cross:hover {
 zoom:1.5;
 border:1px solid gray;

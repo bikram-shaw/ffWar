@@ -50,14 +50,14 @@ export class JoinModalPage implements OnInit {
       
       this.gameServices.joinGame(form).subscribe(res=>{
         this.dismiss()
-       this.loadingService.successtoast("Join successfully")
+       this.loadingService.alert("Join Success")
        },error=>{
-        this.loadingService.failedtoast("Something went wrong")
+        this.loadingService.alert("Something went wrong")
         
       })
     }
     else{
-      this.loadingService.failedtoast("Insufficient balance to join")
+      this.loadingService.alert("Insufficient balance to join")
     }
    
   }

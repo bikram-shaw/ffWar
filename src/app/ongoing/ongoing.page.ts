@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { CommonService } from '../services/common.service';
+import { GameService } from '../services/game.service';
+import { LoadingService } from '../services/loading.service';
 
 @Component({
   selector: 'app-ongoing',
@@ -13,7 +15,9 @@ export class OngoingPage implements OnInit {
 
   constructor(
     private alertController:AlertController,
-    private commonServices:CommonService
+    private commonServices:CommonService,
+    private gameservices:GameService,
+    private loadingService:LoadingService
   ) { }
 
   ngOnInit() {
@@ -29,16 +33,23 @@ export class OngoingPage implements OnInit {
   ionViewWillEnter() {
      this.ngOnInit();
 }
-  async presentAlert() {
+  async roomDetailsAlert(data) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Room Details',
      
-      message: '<br>Room Id :123456 <br><br>  Password :1524',
+      message: '<br>Room Id :'+ data.room_id+ '<br><br>  Password :'+ data.room_password,
       buttons: ['OK']
     });
-
+   
     await alert.present();
+  }
+  fetchRoomDetails(game_id){
+      this.gameservices.roomDetails(game_id).subscribe(res=>{
+        this.roomDetailsAlert(res)
+      },error=>{
+        this.loadingService.alert("You have't join the match")
+      })
   }
   sendToYoutube(){
     window.open('https://www.youtube.com/c/GamingWithRowdy/videos?view_as=subscriber', '_system');

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { CommonService } from '../services/common.service';
 import { WalletService } from '../services/wallet.service';
 import { WithdrawModelPage } from '../withdraw-model/withdraw-model.page';
 
@@ -18,9 +19,15 @@ export class WalletPage implements OnInit {
   
   constructor(
     private modalController: ModalController,
-    private walletService:WalletService
+    private walletService:WalletService,
+    private commonService:CommonService
     
-    ) { }
+    ) { 
+      this.commonService.updateWallet.subscribe(data=>{
+        let win_bal=parseInt(this.walletBal.win_bal)-data
+        this.walletBal.win_bal=""+win_bal
+      })
+    }
 
   ngOnInit() {
     this.getWalletBalance()

@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { LoadingController } from "@ionic/angular";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -18,4 +18,5 @@ export class CommonService {
     return this.http.get(this.url + "/ongoing-game");
   }
 
+  updateWallet=new Subject<number>()
 }

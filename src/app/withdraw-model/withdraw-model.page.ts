@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { CommonService } from '../services/common.service';
 import { LoadingService } from '../services/loading.service';
 import { WalletService } from '../services/wallet.service';
 
@@ -44,7 +45,9 @@ export class WithdrawModelPage implements OnInit {
   constructor(
     private modalController:ModalController,
     private loadingService:LoadingService,
-    private walletService:WalletService
+    private walletService:WalletService,
+    private alertController:AlertController,
+    private commonService:CommonService
   ) {
     
    }
@@ -57,6 +60,27 @@ dismiss()
 {
   this.modalController.dismiss()
 }
+async wthConfirmAlert(amount,mode) {
+  const alert = await this.alertController.create({
+    
+    header: 'Are You Sure ?',
+   
+    buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        cssClass: 'secondary',
+      }, {
+        text: 'Ok',
+        handler: () => {
+          this.withdrawBal(amount,mode)
+        }
+      }
+    ]
+  });
+
+  await alert.present();
+}
 withdrawBal(amount,mode){
   if(this.win_bal>=amount)
   {
@@ -66,7 +90,11 @@ withdrawBal(amount,mode){
     
   this.walletService.withdrawRequest(form).subscribe(res=>{
     this.loadingService.alert(res)
+    this.commonService.updateWallet.next(amount)
     this.dismiss()
+
+  },error=>{
+    this.loadingService.alert("Something went wrong")
   })
   }
 else{
